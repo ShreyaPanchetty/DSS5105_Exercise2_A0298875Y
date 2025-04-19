@@ -18,19 +18,17 @@ Q1.2 – ATE Estimate and Significance
 • P-value for τ: 0.000  
 • 95% Confidence Interval for τ: [−13.438, −4.773]
 
-Interpretation: Participating in the carbon offset program is associated with a **9.11-point decrease** in stakeholder engagement, on average, after controlling for sustainability spending. This is **statistically significant**.
-
+Interpretation: The analysis indicates that, on average, corporations that participated in the carbon offset program experienced a 9.11-point lower stakeholder engagement score compared to those that did not, after accounting for differences in sustainability spending. This estimated treatment effect (ATE) is statistically significant, suggesting that the observed reduction is unlikely due to random chance and may reflect a real, negative causal impact of program participation on stakeholder perceptions.
 ---
 
  Q1.3 – Assumptions for Causal Interpretation of τ̂
 
-1. Unconfoundedness: No unmeasured confounders affecting both treatment and outcome after controlling for spending.
-2. Overlap: All corporations had a non-zero probability of receiving either treatment.
-3. SUTVA: The outcome of each unit is independent of the treatment assigned to other units.
+1. SUTVA (Stable Unit Treatment Value Assumption): The engagement score of each corporation is dependent solely on its own participation status. One corporation's treatment does not influence the results of another.
+2. Unconfoundedness: The decision to participate in the carbon offset program and stakeholder engagement are not influenced by any hidden variables after accounting for sustainability expenditures. This implies that the observed relationship is not influenced by other unmeasured factors.
+3. Overlap: Each corporation had a positive probability of either being in the treatment group (participating) or the control group (not participating). There was no restriction on the treatment status of any corporation.
 
 ---
-
-🔢 Q2.3 – Predicted Engagement Score Ŷi
+Q2.3 – Predicted Engagement Score Ŷi
 
 Input:
 • Wi = 1  
@@ -46,11 +44,9 @@ Prediction via API:
 ```
 
 Manual Calculation:
-Ŷi = 95.9662 + (−9.1057 × 1) + (1.5149 × 20) = **117.16**
+Ŷi = 95.9662 + (−9.1057 × 1) + (1.5149 × 20) = 117.16
 
----
-
-📌 Reference Statsmodels Output
+Reference Statsmodels Output
 
 • R² = 0.698  
 • Adj. R² = 0.662  
@@ -59,4 +55,3 @@ Manual Calculation:
 • AIC = 120.2  
 • BIC = 123.1
 
----
