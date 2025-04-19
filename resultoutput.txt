@@ -1,0 +1,62 @@
+Setup Descriptions
+
+• app.py: This script implements a Flask API exposing two endpoints:
+  - `/predict`: Returns predicted stakeholder engagement score based on inputs `W` and `X`.
+  - `/ate`: Returns estimated Average Treatment Effect (ATE), p-value, and 95% CI using statsmodels OLS regression.
+
+• Dockerfile: Sets up a containerized Python environment with Flask and necessary libraries. Ensures consistent reproducibility across machines.
+
+• Containerization: Provides a portable and reproducible way to deploy the Flask API using Docker. Helpful for running in GitHub Codespaces and other cloud environments.
+
+---
+
+Q1.2 – ATE Estimate and Significance
+
+• Estimated α (intercept): 95.9662  
+• Estimated τ (treatment effect / ATE): −9.1057  
+• Estimated β (effect of spending): 1.5149  
+• P-value for τ: 0.000  
+• 95% Confidence Interval for τ: [−13.438, −4.773]
+
+Interpretation: Participating in the carbon offset program is associated with a **9.11-point decrease** in stakeholder engagement, on average, after controlling for sustainability spending. This is **statistically significant**.
+
+---
+
+ Q1.3 – Assumptions for Causal Interpretation of τ̂
+
+1. Unconfoundedness: No unmeasured confounders affecting both treatment and outcome after controlling for spending.
+2. Overlap: All corporations had a non-zero probability of receiving either treatment.
+3. SUTVA: The outcome of each unit is independent of the treatment assigned to other units.
+
+---
+
+🔢 Q2.3 – Predicted Engagement Score Ŷi
+
+Input:
+• Wi = 1  
+• Xi = 20  
+
+Prediction via API:
+```json
+{
+  "W": 1.0,
+  "X": 20.0,
+  "predicted_Yobs": 117.16
+}
+```
+
+Manual Calculation:
+Ŷi = 95.9662 + (−9.1057 × 1) + (1.5149 × 20) = **117.16**
+
+---
+
+📌 Reference Statsmodels Output
+
+• R² = 0.698  
+• Adj. R² = 0.662  
+• F-statistic = 19.61  
+• Prob (F-statistic) = 3.84e-05  
+• AIC = 120.2  
+• BIC = 123.1
+
+---
