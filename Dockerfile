@@ -11,9 +11,9 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port (optional)
-EXPOSE 7000
+EXPOSE 5000
 
 # Run the Flask app
 CMD ["python", "app.py"]
-CMD [curl "http://localhost:7000/predict?W=1&X=20"]
-CMD [curl "http://localhost:7000/ate"]
+CMD [curl "http://localhost:5000/predict?W=1&X=20"]
+CMD [curl "http://localhost:5000/ate"]
