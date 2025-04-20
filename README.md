@@ -38,7 +38,7 @@ Response:
   "95%_CI": [-13.438, -4.773]
 }
 ```
-![ATE Endpoint](./Question2.png)
+![ATE Endpoint](./question1.png)
 
 ---
 
@@ -66,20 +66,9 @@ Question 2c:
   "predicted_Yobs": 117.16
 }
 ```
-![Prediction Endpoint](./question1.png)
+![Prediction Endpoint](./Question2.png)
 
 
 
 
----
-
-## Files Summary
-
-- `app.py` – Flask API for predictions and ATE
-- `requirements.txt` – Python packages
-- `Dockerfile` – Container setup
-- `output.txt` – API usage log
-- `results.txt` – Model coefficients, statistical analysis, and causal interpretation
-
----
 
